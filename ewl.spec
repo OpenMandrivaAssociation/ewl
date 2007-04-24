@@ -1,8 +1,6 @@
 %define	name	ewl
-%define	version 0.0.4.006
-%define release 0.%{cvsrel}.1mdk
-
-%define cvsrel 20060323
+%define	version 0.0.4.007
+%define release %mkrel 1
 
 %define major 	0
 %define libname %mklibname %{name} %major
@@ -15,10 +13,10 @@ Release: 	%{release}
 License: 	BSD
 Group: 		System/Libraries
 URL: 		http://get-e.org/
-Source: 	%{name}-%{cvsrel}.tar.bz2
+Source: 	%{name}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	evas-devel ecore-devel edb-devel
-BuildRequires:	edje-devel emotion-devel
+BuildRequires:	edje-devel
 BuildRequires:	multiarch-utils
 BuildRequires:  edje embryo
 
@@ -48,10 +46,9 @@ Provides: %name-devel = %{version}-%{release}
 
 %prep
 rm -rf $RPM_BUILD_ROOT
-%setup -q -n %name
+%setup -q
 
 %build
-./autogen.sh
 %configure2_5x
 %make
 
