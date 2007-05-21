@@ -15,9 +15,9 @@ Group: 		System/Libraries
 URL: 		http://get-e.org/
 Source: 	%{name}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	evas-devel >= 0.9.9.038, ecore-devel >= 0.9.9, edb-devel
+BuildRequires:	evas-devel >= 0.9.9.038, ecore-devel >= 0.9.9.038, edb-devel
 BuildRequires:	multiarch-utils
-BuildRequires:  %{mklibname edje0}-devel >= 0.5.0.038, embryo
+BuildRequires:  edje-devel >= 0.5.0.038, embryo
 
 %description
 Enlightened Widget Library (EWL)  provides a widget abstraction to creating
