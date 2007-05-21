@@ -18,6 +18,7 @@ BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	evas-devel >= 0.9.9.038, ecore-devel >= 0.9.9.038, edb-devel
 BuildRequires:	multiarch-utils
 BuildRequires:  edje-devel >= 0.5.0.038, embryo-devel, efreet-devel >= 0.0.3.002
+BuildRequires:  emotion-devel, epsilon-devel
 
 %description
 Enlightened Widget Library (EWL)  provides a widget abstraction to creating
