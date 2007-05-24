@@ -8,7 +8,7 @@
 
 Summary: 	Enlightenment widget library
 Name: 		%{name}
-Version: 0.5.1.008
+Version:	%{version}
 Release: 	%{release}
 License: 	BSD
 Group: 		System/Libraries
