@@ -1,8 +1,8 @@
-%define	name	ewl
+%define	name ewl
 %define version 0.5.1.008
-%define release %mkrel 2
+%define release %mkrel 3
 
-%define major 	0
+%define major 0
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} %major -d
 
@@ -15,10 +15,14 @@ Group: 		System/Libraries
 URL: 		http://get-e.org/
 Source: 	%{name}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	evas-devel >= 0.9.9.038, ecore-devel >= 0.9.9.038, edb-devel
+BuildRequires:	evas-devel >= 0.9.9.038, ecore-devel >= 0.9.9.038, edb-devel >= 1.0.5
+BuildRequires:  edje-devel >= 0.5.0.038, embryo-devel >= 0.9.1.038
+Buildrequires:	efreet-devel >= 0.0.3.002
+BuildRequires:  emotion-devel >= 0.0.1.005
+Buildrequires:  epsilon-devel >= 0.3.0.008
+Buildrequires:  edje, embryo, edje
+Buildrequires:  imlib2-devel
 BuildRequires:	multiarch-utils
-BuildRequires:  edje-devel >= 0.5.0.038, embryo-devel, efreet-devel >= 0.0.3.002
-BuildRequires:  emotion-devel, epsilon-devel, edje, embryo, edje, imlib2-devel
 
 %description
 Enlightened Widget Library (EWL)  provides a widget abstraction to creating
@@ -30,6 +34,7 @@ This package is part of the Enlightenment DR17 desktop shell.
 %package -n %libname
 Summary: Libraries for the %{name} package
 Group: System/Libraries
+Provides: %name = %version-%release
 
 %description -n %libname
 Libraries for %{name}
