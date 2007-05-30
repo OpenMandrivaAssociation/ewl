@@ -20,7 +20,7 @@ BuildRequires:  edje-devel >= 0.5.0.038, embryo-devel >= 0.9.1.038
 Buildrequires:	efreet-devel >= 0.0.3.002
 BuildRequires:  emotion-devel >= 0.0.1.005
 Buildrequires:  epsilon-devel >= 0.3.0.008
-Buildrequires:  edje, embryo, edje
+Buildrequires:  edje >= 0.5.0.038, embryo >= 0.9.1.038
 Buildrequires:  imlib2-devel
 BuildRequires:	multiarch-utils
 
@@ -94,5 +94,4 @@ rm -rf $RPM_BUILD_ROOT
 %multiarch %multiarch_bindir/%name-config
 %{_datadir}/aclocal/*.m4
 %{_datadir}/%name/examples
-
 
