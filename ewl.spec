@@ -23,6 +23,7 @@ Buildrequires:  epsilon-devel >= 0.3.0.008
 Buildrequires:  edje >= 0.5.0.038, embryo >= 0.9.1.038
 Buildrequires:  imlib2-devel
 BuildRequires:	multiarch-utils
+Buildrequires:  libx11-devel
 
 %description
 Enlightened Widget Library (EWL)  provides a widget abstraction to creating
