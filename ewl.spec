@@ -1,8 +1,8 @@
 %define	name ewl
 %define version 0.5.1.008
-%define release %mkrel 3
+%define release %mkrel 4
 
-%define major 0
+%define major 1
 %define libname %mklibname %{name} %major
 %define libnamedev %mklibname %{name} %major -d
 
@@ -81,7 +81,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %libname
 %defattr(-,root,root)
-%{_libdir}/*.so.*
+%{_libdir}/*.so.{major}*
 
 %files -n %libnamedev
 %defattr(-,root,root)
