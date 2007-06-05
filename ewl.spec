@@ -55,6 +55,7 @@ rm -rf $RPM_BUILD_ROOT
 %setup -q
 
 %build
+./autogen.sh
 %configure2_5x
 %make
 
