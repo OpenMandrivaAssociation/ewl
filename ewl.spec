@@ -1,6 +1,6 @@
 %define	name ewl
 %define version 0.5.1.008
-%define release %mkrel 6
+%define release %mkrel 7
 
 %define major 1
 %define libname %mklibname %{name} %major
@@ -46,6 +46,7 @@ Group: Development/Other
 Requires: %libname = %{version}
 Provides: lib%{name}-devel = %{version}-%{release}
 Provides: %name-devel = %{version}-%{release}
+Conflicts: libewl0-devel
 
 %description -n %libnamedev
 %{name} development headers and libraries
