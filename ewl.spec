@@ -1,6 +1,6 @@
 %define	name ewl
-%define version 0.5.1.008
-%define release %mkrel 8
+%define version 0.5.1.011
+%define release %mkrel 1
 
 %define major 1
 %define libname %mklibname %{name} %major
