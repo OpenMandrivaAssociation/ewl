@@ -1,6 +1,6 @@
 %define	name ewl
 %define version 0.5.1.011
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major 1
 %define libname %mklibname %{name} %major
@@ -35,7 +35,6 @@ This package is part of the Enlightenment DR17 desktop shell.
 %package -n %libname
 Summary: Libraries for the %{name} package
 Group: System/Libraries
-Provides: %name = %version-%release
 
 %description -n %libname
 Libraries for %{name}
