@@ -14,6 +14,7 @@ License: 	BSD
 Group: 		System/Libraries
 URL: 		http://get-e.org/
 Source: 	%{name}-%{version}.tar.bz2
+BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	evas-devel >= 0.9.9.038, ecore-devel >= 0.9.9.038, edb-devel >= 1.0.5
 BuildRequires:  edje-devel >= 0.5.0.038, embryo-devel >= 0.9.1.038
 Buildrequires:	efreet-devel >= 0.0.3.002
