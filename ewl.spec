@@ -1,10 +1,10 @@
 %define	name ewl
-%define version 0.5.1.011
-%define release %mkrel 2
+%define version 0.5.2.042
+%define release %mkrel 1
 
 %define major 1
 %define libname %mklibname %{name} %major
-%define libnamedev %mklibname %{name} %major -d
+%define libnamedev %mklibname %{name} -d
 
 Summary: 	Enlightenment widget library
 Name: 		%{name}
@@ -12,18 +12,18 @@ Version:	%{version}
 Release: 	%{release}
 License: 	BSD
 Group: 		System/Libraries
-URL: 		http://get-e.org/
+URL: 		http://www.enlightenment.org/
 Source: 	%{name}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	evas-devel >= 0.9.9.038, ecore-devel >= 0.9.9.038, edb-devel >= 1.0.5
-BuildRequires:  edje-devel >= 0.5.0.038, embryo-devel >= 0.9.1.038
-Buildrequires:	efreet-devel >= 0.0.3.002
-BuildRequires:  emotion-devel >= 0.0.1.005
-Buildrequires:  epsilon-devel >= 0.3.0.008
-Buildrequires:  edje >= 0.5.0.038, embryo >= 0.9.1.038
+BuildRequires:	evas-devel
+BuildRequires:	ecore-devel
+BuildRequires:  edje-devel edje
+BuildRequires:	embryo-devel embryo
+Buildrequires:	efreet-devel
+BuildRequires:  emotion-devel
+Buildrequires:  epsilon-devel
 Buildrequires:  imlib2-devel
-BuildRequires:	multiarch-utils
-Buildrequires:  libx11-devel
+Buildrequires:  X11-devel
 
 %description
 Enlightened Widget Library (EWL)  provides a widget abstraction to creating
@@ -45,25 +45,20 @@ Group: Development/Other
 Requires: %libname = %{version}
 Provides: lib%{name}-devel = %{version}-%{release}
 Provides: %name-devel = %{version}-%{release}
-Conflicts: libewl0-devel
 
 %description -n %libnamedev
-%{name} development headers and libraries
+%{name} development headers and libraries.
 
 %prep
-rm -rf $RPM_BUILD_ROOT
 %setup -q
 
 %build
-./autogen.sh
 %configure2_5x
 %make
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall
-cp -v $RPM_BUILD_DIR/%name-%version/%name-config %buildroot/%_bindir/
-%multiarch_binaries %buildroot/%_bindir/%name-config
 
 %post -n %libname -p /sbin/ldconfig
 %postun -n %libname -p /sbin/ldconfig
@@ -77,14 +72,16 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/%{name}_*
 %_sysconfdir/%name/%name.cfg
 %dir %{_datadir}/%name
-
 %{_datadir}/%name/themes
 %{_datadir}/%name/images
-%{_libdir}/%name
+%{_libdir}/%name/engines/*.so
+%{_libdir}/%name/plugins/*.so
+%{_libdir}/%name/tests/*.so
 
 %files -n %libname
 %defattr(-,root,root)
 %{_libdir}/*.so.%{major}*
+%{_libdir}/%name/engines/*.so.*
 
 %files -n %libnamedev
 %defattr(-,root,root)
@@ -92,9 +89,12 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_libdir}/*.la
+%{_libdir}/%name/engines/*.a
+%{_libdir}/%name/engines/*.la
+%{_libdir}/%name/plugins/*.a
+%{_libdir}/%name/plugins/*.la
+%{_libdir}/%name/tests/*.a
+%{_libdir}/%name/tests/*.la
 %{_includedir}/%name
-%{_bindir}/%name-config
-%multiarch %multiarch_bindir/%name-config
-%{_datadir}/aclocal/*.m4
 %{_datadir}/%name/examples
 
