@@ -1,6 +1,6 @@
 %define	name ewl
 %define version 0.5.2.042
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define major 1
 %define libname %mklibname %{name} %major
@@ -15,13 +15,13 @@ Group: 		System/Libraries
 URL: 		http://www.enlightenment.org/
 Source: 	%{name}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
-BuildRequires:	evas-devel
-BuildRequires:	ecore-devel
-BuildRequires:  edje-devel edje
-BuildRequires:	embryo-devel embryo
-Buildrequires:	efreet-devel
-BuildRequires:  emotion-devel
-Buildrequires:  epsilon-devel
+BuildRequires:	evas-devel >= 0.9.9.042
+BuildRequires:	ecore-devel >= 0.9.9.042
+BuildRequires:  edje-devel >= 0.5.0.042, edje => 0.5.0.042
+BuildRequires:	embryo-devel >= 0.9.1.042, embryo >= 0.9.1.042
+Buildrequires:	efreet-devel >= 0.0.3.042
+BuildRequires:  emotion-devel >= 0.1.0.042
+Buildrequires:  epsilon-devel >= 0.3.0.012
 Buildrequires:  imlib2-devel
 Buildrequires:  X11-devel
 
