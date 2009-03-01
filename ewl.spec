@@ -24,6 +24,7 @@ BuildRequires:  emotion-devel >= 0.1.0.042
 Buildrequires:  epsilon-devel >= 0.3.0.012
 Buildrequires:  imlib2-devel
 Buildrequires:  X11-devel
+Buildrequires:  libxp-devel
 
 %description
 Enlightened Widget Library (EWL)  provides a widget abstraction to creating
