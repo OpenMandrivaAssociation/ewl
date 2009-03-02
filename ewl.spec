@@ -103,9 +103,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.so
 %{_libdir}/*.a
 %{_libdir}/*.la
-%{_libdir}/%name/engines/*.a
+#%{_libdir}/%name/engines/*.a
 %{_libdir}/%name/engines/*.la
-%{_libdir}/%name/plugins/*.a
+#%{_libdir}/%name/plugins/*.a
 %{_libdir}/%name/plugins/*.la
 #%{_libdir}/%name/tests/*.a
 #%{_libdir}/%name/tests/*.la
