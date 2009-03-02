@@ -54,7 +54,16 @@ Provides: %name-devel = %{version}-%{release}
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x --enable-software-buffer \
+  --enable-software-x11 \
+  --enable-software-16-x11 \
+  --enable-xrender-x11 \
+  --enable-opengl-x11 \
+  --enable-software-xcb \
+  --enable-opengl-glew \
+  --enable-software-sdl \
+  --enable-fb \
+  --disable-tests
 %make
 
 %install
@@ -81,7 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%name/images
 %{_libdir}/%name/engines/*.so
 %{_libdir}/%name/plugins/*.so
-%{_libdir}/%name/tests/*.so
+#%{_libdir}/%name/tests/*.so
 
 %files -n %libname
 %defattr(-,root,root)
@@ -98,8 +107,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/%name/engines/*.la
 %{_libdir}/%name/plugins/*.a
 %{_libdir}/%name/plugins/*.la
-%{_libdir}/%name/tests/*.a
-%{_libdir}/%name/tests/*.la
+#%{_libdir}/%name/tests/*.a
+#%{_libdir}/%name/tests/*.la
 %{_includedir}/%name
 %{_datadir}/%name/examples
 
