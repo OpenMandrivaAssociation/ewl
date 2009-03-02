@@ -90,6 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%name/images
 %{_libdir}/%name/engines/*.so
 %{_libdir}/%name/plugins/*.so
+%{_datadir}/%name/tutorials/*.dox
 #%{_libdir}/%name/tests/*.so
 
 %files -n %libname
