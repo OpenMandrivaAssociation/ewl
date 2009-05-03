@@ -1,6 +1,7 @@
 %define	name ewl
 %define version 0.5.3.050
-%define release %mkrel 1
+%define svnrel 20090503
+%define release %mkrel 2.%{svnrel}.1
 
 %define major 1
 %define libname %mklibname %{name} %major
@@ -16,7 +17,7 @@ URL: 		http://www.enlightenment.org/
 Source: 	%{name}-%{version}.tar.bz2
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	evas-devel >= 0.9.9.050
-BuildRequires:	ecore-devel >= 0.9.9.050
+BuildRequires:	ecore-devel >= 0.9.9.060
 BuildRequires:  edje-devel >= 0.5.0.050, edje => 0.5.0.050
 BuildRequires:	embryo-devel >= 0.9.9.050, embryo >= 0.9.9.050
 Buildrequires:	efreet-devel >= 0.0.5.050
@@ -25,6 +26,7 @@ Buildrequires:  epsilon-devel >= 0.3.0.012
 Buildrequires:  imlib2-devel
 Buildrequires:  X11-devel
 Buildrequires:  libxp-devel
+BuildRequires:	gettext-devel
 
 %description
 Enlightened Widget Library (EWL)  provides a widget abstraction to creating
@@ -51,9 +53,10 @@ Provides: %name-devel = %{version}-%{release}
 %{name} development headers and libraries.
 
 %prep
-%setup -q
+%setup -qn %name
 
 %build
+NOCONFIGURE=1 ./autogen.sh
 %configure2_5x --enable-software-buffer \
   --enable-software-x11 \
   --enable-software-16-x11 \
@@ -69,6 +72,7 @@ Provides: %name-devel = %{version}-%{release}
 %install
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
+%find_lang %name
 
 %if %mdkversion < 200900
 %post -n %libname -p /sbin/ldconfig
@@ -80,7 +84,7 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %name.lang
 %defattr(-,root,root)
 %doc AUTHORS COPYING README
 %{_bindir}/%{name}_*
