@@ -1,7 +1,7 @@
 %define	name ewl
 %define version 0.5.3.050
-%define svnrel 20090503
-%define release %mkrel 2.%{svnrel}.2
+%define svnrel 20090807
+%define release %mkrel 2.%{svnrel}.1
 
 %define major 1
 %define libname %mklibname %{name} %major
@@ -15,6 +15,7 @@ License: 	BSD
 Group: 		System/Libraries
 URL: 		http://www.enlightenment.org/
 Source: 	%{name}-%{version}.tar.bz2
+Patch0:		ewl-linkage.patch
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
 BuildRequires:	evas-devel >= 0.9.9.050
 BuildRequires:	ecore-devel >= 0.9.9.060
@@ -54,6 +55,7 @@ Provides: %name-devel = %{version}-%{release}
 
 %prep
 %setup -qn %name
+%patch0 -p0
 
 %build
 NOCONFIGURE=1 ./autogen.sh
@@ -62,12 +64,10 @@ NOCONFIGURE=1 ./autogen.sh
   --enable-software-16-x11 \
   --enable-xrender-x11 \
   --enable-opengl-x11 \
-  --enable-software-xcb \
-  --enable-opengl-glew \
   --enable-software-sdl \
   --enable-fb \
   --disable-tests
-%make
+make
 
 %install
 rm -rf $RPM_BUILD_ROOT
