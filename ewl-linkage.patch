@@ -1,0 +1,23 @@
+--- configure.ac~	2009-07-14 23:40:33.000000000 +0200
++++ configure.ac	2009-08-07 16:28:56.000000000 +0200
+@@ -156,9 +156,9 @@
+ 
+ have_locking="no"
+ CPPFLAGS_save=${CPPFLAGS}
+-LDFLAGS_save=${LDLAGS}
++LIBS_save=${LIBS}
+ CPPFLAGS="${CPPFLAGS} ${EVIL_CFLAGS}"
+-LDFLAGS="${LDFLAGS} ${EVIL_LIBS}"
++LIBS="${LIBS} ${EVIL_LIBS}"
+ AC_COMPILE_IFELSE(
+   [AC_LANG_PROGRAM(
+      [[
+@@ -179,7 +179,7 @@
+    have_locking="yes"]
+ )
+ CPPFLAGS=${CPPFLAGS_save}
+-LDFLAGS=${LDFLAGS_save}
++LIBS=${LIBS_save}
+ 
+ if test "x${have_locking}" = "xno"; then
+   AC_MSG_ERROR([Error: fcntl() not available.])
