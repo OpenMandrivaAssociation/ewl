@@ -13,7 +13,7 @@ Version:	%{version}
 Release: 	%{release}
 License: 	BSD
 Group: 		System/Libraries
-URL: 		http://www.enlightenment.org/
+URL: 		https://www.enlightenment.org/
 Source: 	%{name}-%{version}.tar.bz2
 Patch0:		ewl-linkage.patch
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
