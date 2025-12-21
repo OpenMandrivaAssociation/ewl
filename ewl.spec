@@ -17,6 +17,11 @@ URL: 		https://www.enlightenment.org/
 Source: 	%{name}-%{version}.tar.bz2
 Patch0:		ewl-linkage.patch
 BuildRoot: 	%{_tmppath}/%{name}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	evas-devel >= 0.9.9.050
 BuildRequires:	ecore-devel >= 0.9.9.060
 BuildRequires:  edje-devel >= 0.5.0.050, edje => 0.5.0.050
