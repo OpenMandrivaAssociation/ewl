@@ -1,7 +1,7 @@
 %define	name ewl
 %define version 0.5.3.050
 %define svnrel 20090807
-%define release %mkrel 2.%{svnrel}.2
+%define release 2.%{svnrel}.3
 
 %define major 1
 %define libname %mklibname %{name} %major
